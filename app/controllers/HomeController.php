@@ -2,9 +2,11 @@
 
 class HomeController extends Controller
 {
-    public function index($name='',$id='')
+    public function index($name='')
     {
-        echo $name . ' ' . $id;
+        $user = $this->model('User');
+        $user->name =$name;
+        $this->view('home/index',['name' => $user->name] );
     }
 
 }
